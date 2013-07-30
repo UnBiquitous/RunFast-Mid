@@ -24,6 +24,11 @@
         android:screenOrientation="portrait" />
     <activity android:name="br.unb.unbiquitous.ubiquitos.runFast.mid.ControllerActivity"
         android:screenOrientation="landscape" />
+    
+    <activity android:name="br.unb.unbiquitous.ubiquitos.runFast.minigames.bonusmg.BonusActivity"
+        android:screenOrientation="portrait" />
+    <activity android:name="br.unb.unbiquitous.ubiquitos.runFast.minigames.breakmg.BreakActivity"
+        android:screenOrientation="portrait" />
   </application>
 
 </manifest>

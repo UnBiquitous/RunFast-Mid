@@ -1,5 +1,9 @@
 <resources>
 
+    <style name="QuitButtonStyle" parent="@android:style/Widget.CompoundButton">
+   		<item name="android:background">@drawable/quit_button</item>
+	</style>
+	
     <style name="UpButtonStyle" parent="@android:style/Widget.CompoundButton">
    		<item name="android:background">@drawable/up_button</item>
 	</style>
@@ -18,6 +22,22 @@
 	</style>
 	<style name="Action2ButtonStyle" parent="@android:style/Widget.CompoundButton">
    		<item name="android:background">@drawable/action2_button</item>
+	</style>
+	<style name="CoAction1ButtonStyle" parent="@android:style/Widget.CompoundButton">
+   		<item name="android:background">@drawable/co_action1_button</item>
+	</style>
+	<style name="CoAction2ButtonStyle" parent="@android:style/Widget.CompoundButton">
+   		<item name="android:background">@drawable/co_action2_button</item>
+	</style>
+	
+	<style name="PlusLeftButtonStyle" parent="@android:style/Widget.CompoundButton">
+   		<item name="android:background">@drawable/plusleft_button</item>
+	</style>
+	<style name="PlusRightButtonStyle" parent="@android:style/Widget.CompoundButton">
+   		<item name="android:background">@drawable/plusright_button</item>
+	</style>
+	<style name="PlusSelectButtonStyle" parent="@android:style/Widget.CompoundButton">
+   		<item name="android:background">@drawable/plusselect_button</item>
 	</style>
 	
     <!--

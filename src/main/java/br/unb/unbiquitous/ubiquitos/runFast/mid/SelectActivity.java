@@ -41,6 +41,7 @@ public class SelectActivity extends Activity{
 		Log.i(TAG, "onCreate");
         setContentView(R.layout.select_activity);
         
+        MidManager.setActivity(this);
         gateway = MidManager.getGateway();
         createUI();
     }
@@ -117,6 +118,7 @@ public class SelectActivity extends Activity{
 						if(response.getResponseString("isInGame").equals("true")){
 							Intent intent = new Intent(getApplicationContext(), SelectCarActivity.class);
 							startActivity(intent);
+							finish();
 						}else
 							requestToJoinGame(size, "pilot");
 							
@@ -149,7 +151,9 @@ public class SelectActivity extends Activity{
 		if(response!=null){
 			if(response.getResponseString("hadJoined").equals("true")){
 				Intent intent = new Intent(getApplicationContext(), ControllerActivity.class);
+				intent.putExtra("character", character);
 				startActivity(intent);
+				finish();
 			}else{
 				//recreate
 				startActivity(getIntent());

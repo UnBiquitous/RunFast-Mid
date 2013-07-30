@@ -3,8 +3,8 @@ package br.unb.unbiquitous.ubiquitos.runFast.mid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import java.util.logging.Logger;
 
-import org.unbiquitous.uos.core.Logger;
 import org.unbiquitous.uos.core.adaptabitilyEngine.Gateway;
 import org.unbiquitous.uos.core.adaptabitilyEngine.NotifyException;
 import org.unbiquitous.uos.core.applicationManager.UOSMessageContext;
@@ -20,7 +20,7 @@ import org.unbiquitous.uos.core.network.model.NetworkDevice;
 
 public class RFInputDriver implements UosEventDriver{
 
-	private static Logger logger = Logger.getLogger(RFInputDriver.class);
+	private static Logger logger = Logger.getLogger(RFInputDriver.class.getName());
 
 	public static final String RFINPUT_DRIVER = "br.unb.unbiquitous.ubiquitos.runFast.mid.RFInputDriver";
     
@@ -47,6 +47,16 @@ public class RFInputDriver implements UosEventDriver{
 		
 		driver.addService("receiveInvite")
 			.addParameter("deviceName", ParameterType.MANDATORY);
+		driver.addService("endGame")
+			.addParameter("deviceName", ParameterType.MANDATORY);
+		driver.addService("endRace")
+			.addParameter("deviceName", ParameterType.MANDATORY);
+		
+		driver.addService("beginMGBonus")
+			.addParameter("deviceName", ParameterType.MANDATORY);
+		driver.addService("beginMGBreak")
+			.addParameter("deviceName", ParameterType.MANDATORY)
+			.addParameter("helpNumber", ParameterType.MANDATORY);
 		
 		driver.addService("startSpin")
 			.addParameter("intensity", ParameterType.MANDATORY);
@@ -110,7 +120,7 @@ public class RFInputDriver implements UosEventDriver{
         //kbDriverGUI.changeNumberOfListeners(numberOfListeners);
 	}
 
-	//Invite Services
+	//Talk to Game Services
 	/**
 	 * Receive one invite from one game and sends it to the activity
 	 * so that the user can enter it.
@@ -122,6 +132,54 @@ public class RFInputDriver implements UosEventDriver{
 			ServiceResponse serviceResponse, UOSMessageContext messageContext) {
 		MidManager.receiveInvite(getDevice(serviceCall.getParameterString("deviceName")));
 	}
+
+	/**
+	 * Receive one invite from one game and sends it to the activity
+	 * so that the user can enter it.
+	 * @param serviceCall
+	 * @param serviceResponse
+	 * @param messageContext
+	 */
+	public void endGame(ServiceCall serviceCall, 
+			ServiceResponse serviceResponse, UOSMessageContext messageContext) {
+		MidManager.endGame(getDevice(serviceCall.getParameterString("deviceName")));
+	}
+	
+	/**
+	 * Receive one invite from one game and sends it to the activity
+	 * so that the user can enter it.
+	 * @param serviceCall
+	 * @param serviceResponse
+	 * @param messageContext
+	 */
+	public void endRace(ServiceCall serviceCall, 
+			ServiceResponse serviceResponse, UOSMessageContext messageContext) {
+		MidManager.endRace(getDevice(serviceCall.getParameterString("deviceName")));
+	}
+	
+	/**
+	 * Begins the Bonus mini-game
+	 * @param serviceCall
+	 * @param serviceResponse
+	 * @param messageContext
+	 */
+	public void beginMGBonus(ServiceCall serviceCall, 
+			ServiceResponse serviceResponse, UOSMessageContext messageContext) {
+		MidManager.beginMGBonus(getDevice(serviceCall.getParameterString("deviceName")));
+	}
+
+	/**
+	 * Begins the Break mini-game
+	 * @param serviceCall
+	 * @param serviceResponse
+	 * @param messageContext
+	 */
+	public void beginMGBreak(ServiceCall serviceCall, 
+			ServiceResponse serviceResponse, UOSMessageContext messageContext) {
+		MidManager.beginMGBreak(getDevice(serviceCall.getParameterString("deviceName")),
+				Integer.parseInt(serviceCall.getParameterString("helpNumber")));
+	}
+
 	
 	/**
 	 * Finds the correspondent UpDevice with the given name and returns it
@@ -229,7 +287,7 @@ public class RFInputDriver implements UosEventDriver{
             try {
                 this.gateway.sendEventNotify(notify, device);
             } catch (NotifyException e) {
-            	logger.error(e.getMessage());
+            	//logger.error(e.getMessage());
             }
         }
 	}

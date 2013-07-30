@@ -6,6 +6,8 @@ import org.unbiquitous.uos.core.messageEngine.dataType.UpDevice;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,7 +19,9 @@ import android.widget.ToggleButton;
 
 public class MainActivity extends Activity{
 
-    private static String TAG = "mid";
+    private static final String TAG = "mid";
+    
+    private static final int MAKE_INVITE = 5;
     
     private Gateway gateway = null;
     //private UOSApplicationContext uosApplicationContext = null;
@@ -26,6 +30,20 @@ public class MainActivity extends Activity{
     
     private LinearLayout llInvites;
     private Button searchRunFast;
+    private Button acceptInvite, cancelInvite;
+    private TextView receivedInvite;
+    
+    private final Handler handler = new Handler(){
+    	  @Override
+    	  public void handleMessage(Message msg) {
+    	    if(msg.what==MAKE_INVITE){
+    	    	receivedInvite.setVisibility(TextView.VISIBLE);
+    	    	acceptInvite.setVisibility(Button.VISIBLE);
+				cancelInvite.setVisibility(Button.VISIBLE);
+    	    }
+    	    super.handleMessage(msg);
+    	  }
+    	};
     
     /**
      * Called when the activity is first created.
@@ -42,6 +60,23 @@ public class MainActivity extends Activity{
 		initUI();
     }
     
+    @Override
+    protected void onResume() {
+    	super.onResume();
+    	
+    	if(togMid.isChecked()){
+    		//togMid.setChecked(false);
+    		llInvites.removeAllViews();
+    		receivedInvite.setVisibility(TextView.INVISIBLE);
+    		acceptInvite.setVisibility(Button.INVISIBLE);
+			cancelInvite.setVisibility(Button.INVISIBLE);
+			
+			togMid.setChecked(false);
+			togMid.setChecked(true);
+		}
+    }
+    
+
     private void initUI(){
     	//Turns on/off the middleware
     	final Activity activity = this;
@@ -99,6 +134,28 @@ public class MainActivity extends Activity{
 					
 			}
 		});
+		
+		receivedInvite = (TextView) findViewById(R.id.tvReceivedInvite);
+		
+		acceptInvite = (Button) findViewById(R.id.btEnterInvite);
+		acceptInvite.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getApplicationContext(), SelectActivity.class);
+				startActivity(intent);
+			}
+		});
+		cancelInvite = (Button) findViewById(R.id.btCancelInvite);
+		cancelInvite.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				receivedInvite.setVisibility(TextView.INVISIBLE);
+				acceptInvite.setVisibility(Button.INVISIBLE);
+				cancelInvite.setVisibility(Button.INVISIBLE);
+			}
+		});
 	}
     
     /**
@@ -109,7 +166,10 @@ public class MainActivity extends Activity{
     	if(gateway.listDrivers(MidManager.RFDEVICES_DRIVER)!=null){
     		if(gateway.listDrivers(MidManager.RFDEVICES_DRIVER).size()>0){
     			MidManager.setGameDevice(device);
-    			createInvite();
+    			//createInvite();
+    			Message msg = handler.obtainMessage();
+    		    msg.what = MAKE_INVITE;
+    		    handler.sendMessage(msg);
     		}
     	}
     }

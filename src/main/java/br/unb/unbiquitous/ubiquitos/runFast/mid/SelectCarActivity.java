@@ -38,6 +38,7 @@ public class SelectCarActivity extends Activity {
 		Log.i(TAG, "onCreate");
         setContentView(R.layout.selectcar_activity);
         
+        MidManager.setActivity(this);
         gateway = MidManager.getGateway();
         createUI();
     }
@@ -89,7 +90,9 @@ public class SelectCarActivity extends Activity {
 		if(response!=null){
 			if(response.getResponseString("hadJoined").equals("true")){
 				Intent intent = new Intent(getApplicationContext(), ControllerActivity.class);
+				intent.putExtra("character", "pilot");
 				startActivity(intent);
+				finish();
 			}else{
 				//recreate
 				Intent intent = new Intent(getApplicationContext(), SelectActivity.class);

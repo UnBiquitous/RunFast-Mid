@@ -3,6 +3,7 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:keepScreenOn="true"
     >
 
     <LinearLayout 
@@ -55,8 +56,38 @@
 	    android:id="@+id/llInvites"
 	    android:layout_marginTop="20dp"
         android:layout_width="fill_parent"
-    	android:layout_height="fill_parent"
+    	android:layout_height="120dp"
     	android:orientation="vertical">
+	</LinearLayout>
+	
+	<TextView
+	    android:id="@+id/tvReceivedInvite"
+	    android:layout_marginTop="15dp"
+	    android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:text="@string/receivedInvite"
+    	android:textColor="#FFFFFF"
+    	android:visibility="invisible" 
+	    />
+	
+	<LinearLayout
+	    android:layout_marginTop="5dp"
+        android:layout_width="fill_parent"
+    	android:layout_height="fill_parent"
+    	android:orientation="horizontal">
+	    <Button 
+	        android:id="@+id/btEnterInvite"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/accept"
+	        android:visibility="invisible"/>
+	    <Button 
+	        android:id="@+id/btCancelInvite"
+	 	    android:layout_marginLeft="5dp"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/cancel"
+	        android:visibility="invisible"/>
 	</LinearLayout>
 	
 </LinearLayout>
