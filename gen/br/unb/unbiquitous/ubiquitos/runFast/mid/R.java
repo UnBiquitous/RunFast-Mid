@@ -84,34 +84,34 @@ public final class R {
         public static final int white_car=0x7f020046;
     }
     public static final class id {
-        public static final int btCancelInvite=0x7f06000f;
-        public static final int btEnterInvite=0x7f06000e;
-        public static final int controller_action1=0x7f060005;
-        public static final int controller_action2=0x7f060006;
-        public static final int controller_down=0x7f060004;
-        public static final int controller_left=0x7f060001;
-        public static final int controller_plusLeft=0x7f060007;
-        public static final int controller_plusRight=0x7f060008;
-        public static final int controller_plusSelect=0x7f060009;
-        public static final int controller_quit=0x7f060000;
-        public static final int controller_right=0x7f060003;
-        public static final int controller_up=0x7f060002;
-        public static final int llInvites=0x7f06000c;
-        public static final int runFastSearch=0x7f06000b;
-        public static final int select_btBlueCar=0x7f060012;
-        public static final int select_btBlueRedCar=0x7f060014;
-        public static final int select_btBlueWhiteCar=0x7f060015;
-        public static final int select_btF1BlueCar=0x7f060019;
-        public static final int select_btF1RedCar=0x7f06001a;
-        public static final int select_btGreenWhiteCar=0x7f060016;
-        public static final int select_btNewTeam=0x7f060011;
-        public static final int select_btRandomCar=0x7f06001b;
-        public static final int select_btRedCar=0x7f060013;
-        public static final int select_btRedYellowCar=0x7f060017;
-        public static final int select_btWhiteCar=0x7f060018;
-        public static final int select_llOptions=0x7f060010;
-        public static final int togMid=0x7f06000a;
-        public static final int tvReceivedInvite=0x7f06000d;
+        public static final int btCancelInvite=0x7f07000f;
+        public static final int btEnterInvite=0x7f07000e;
+        public static final int controller_action1=0x7f070005;
+        public static final int controller_action2=0x7f070006;
+        public static final int controller_down=0x7f070004;
+        public static final int controller_left=0x7f070001;
+        public static final int controller_plusLeft=0x7f070007;
+        public static final int controller_plusRight=0x7f070008;
+        public static final int controller_plusSelect=0x7f070009;
+        public static final int controller_quit=0x7f070000;
+        public static final int controller_right=0x7f070003;
+        public static final int controller_up=0x7f070002;
+        public static final int llInvites=0x7f07000c;
+        public static final int runFastSearch=0x7f07000b;
+        public static final int select_btBlueCar=0x7f070012;
+        public static final int select_btBlueRedCar=0x7f070014;
+        public static final int select_btBlueWhiteCar=0x7f070015;
+        public static final int select_btF1BlueCar=0x7f070019;
+        public static final int select_btF1RedCar=0x7f07001a;
+        public static final int select_btGreenWhiteCar=0x7f070016;
+        public static final int select_btNewTeam=0x7f070011;
+        public static final int select_btRandomCar=0x7f07001b;
+        public static final int select_btRedCar=0x7f070013;
+        public static final int select_btRedYellowCar=0x7f070017;
+        public static final int select_btWhiteCar=0x7f070018;
+        public static final int select_llOptions=0x7f070010;
+        public static final int togMid=0x7f07000a;
+        public static final int tvReceivedInvite=0x7f07000d;
     }
     public static final class layout {
         public static final int assistant_controller=0x7f030000;
@@ -122,27 +122,34 @@ public final class R {
         public static final int select_activity=0x7f030005;
         public static final int selectcar_activity=0x7f030006;
     }
+    public static final class raw {
+        public static final int bum=0x7f040000;
+        public static final int coin=0x7f040001;
+    }
     public static final class string {
-        public static final int accept=0x7f040006;
-        public static final int app_name=0x7f040002;
-        public static final int cancel=0x7f040007;
-        public static final int quitDialog_cancel=0x7f04000f;
-        public static final int quitDialog_message=0x7f04000d;
-        public static final int quitDialog_ok=0x7f04000e;
-        public static final int quitDialog_title=0x7f04000c;
-        public static final int receivedInvite=0x7f040005;
-        public static final int runFast=0x7f040003;
-        public static final int search=0x7f040004;
-        public static final int select_addTeam=0x7f040008;
-        public static final int select_enterTeam=0x7f040009;
-        public static final int selectcar_random=0x7f04000b;
-        public static final int selectcar_selectCar=0x7f04000a;
-        public static final int startMiddleware=0x7f040000;
-        public static final int toggleMiddleware=0x7f040001;
+        public static final int accept=0x7f050006;
+        public static final int app_name=0x7f050002;
+        public static final int assistent=0x7f050012;
+        public static final int cancel=0x7f050007;
+        public static final int copilot=0x7f050011;
+        public static final int pilot=0x7f050010;
+        public static final int quitDialog_cancel=0x7f05000f;
+        public static final int quitDialog_message=0x7f05000d;
+        public static final int quitDialog_ok=0x7f05000e;
+        public static final int quitDialog_title=0x7f05000c;
+        public static final int receivedInvite=0x7f050005;
+        public static final int runFast=0x7f050003;
+        public static final int search=0x7f050004;
+        public static final int select_addTeam=0x7f050008;
+        public static final int select_enterTeam=0x7f050009;
+        public static final int selectcar_random=0x7f05000b;
+        public static final int selectcar_selectCar=0x7f05000a;
+        public static final int startMiddleware=0x7f050000;
+        public static final int toggleMiddleware=0x7f050001;
     }
     public static final class style {
-        public static final int Action1ButtonStyle=0x7f050005;
-        public static final int Action2ButtonStyle=0x7f050006;
+        public static final int Action1ButtonStyle=0x7f060005;
+        public static final int Action2ButtonStyle=0x7f060006;
         /** 
         Base application theme, dependent on API level. This theme is replaced
         by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
@@ -153,20 +160,20 @@ public final class R {
             backward-compatibility can go here.
         
          */
-        public static final int AppBaseTheme=0x7f05000c;
+        public static final int AppBaseTheme=0x7f06000c;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f05000d;
-        public static final int CoAction1ButtonStyle=0x7f050007;
-        public static final int CoAction2ButtonStyle=0x7f050008;
-        public static final int DownButtonStyle=0x7f050004;
-        public static final int LeftButtonStyle=0x7f050002;
-        public static final int PlusLeftButtonStyle=0x7f050009;
-        public static final int PlusRightButtonStyle=0x7f05000a;
-        public static final int PlusSelectButtonStyle=0x7f05000b;
-        public static final int QuitButtonStyle=0x7f050000;
-        public static final int RightButtonStyle=0x7f050003;
-        public static final int UpButtonStyle=0x7f050001;
+        public static final int AppTheme=0x7f06000d;
+        public static final int CoAction1ButtonStyle=0x7f060007;
+        public static final int CoAction2ButtonStyle=0x7f060008;
+        public static final int DownButtonStyle=0x7f060004;
+        public static final int LeftButtonStyle=0x7f060002;
+        public static final int PlusLeftButtonStyle=0x7f060009;
+        public static final int PlusRightButtonStyle=0x7f06000a;
+        public static final int PlusSelectButtonStyle=0x7f06000b;
+        public static final int QuitButtonStyle=0x7f060000;
+        public static final int RightButtonStyle=0x7f060003;
+        public static final int UpButtonStyle=0x7f060001;
     }
 }

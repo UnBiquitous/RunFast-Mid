@@ -19,5 +19,9 @@
     <string name="quitDialog_message">Tem certeza que deseja sair?</string>
     <string name="quitDialog_ok">Sim</string>
     <string name="quitDialog_cancel">Cancelar</string>
+    
+    <string name="pilot">Piloto</string>
+    <string name="copilot">Copiloto</string>
+    <string name="assistent">Assistente</string>
 
 </resources>

@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 public class BreakActivity extends Activity {
 
-	private GameSurface gameSurface = null;
+	private BreakGameSurface gameSurface = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +15,7 @@ public class BreakActivity extends Activity {
 		MidManager.setActivity(this);
 		
 		int helpNumber = getIntent().getIntExtra("helpNumber",1);
-		gameSurface = new GameSurface(getApplicationContext(),getResources(),helpNumber);
+		gameSurface = new BreakGameSurface(getApplicationContext(),getResources(),helpNumber);
 		setContentView(gameSurface);
 	}
 	

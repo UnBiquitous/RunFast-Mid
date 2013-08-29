@@ -17,6 +17,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+/**
+ * Initial activity which provides the possibility to turn on and off
+ * the middleware and shows the graphic interface to enter a game.
+ *
+ */
 public class MainActivity extends Activity{
 
     private static final String TAG = "mid";
@@ -71,8 +76,8 @@ public class MainActivity extends Activity{
     		acceptInvite.setVisibility(Button.INVISIBLE);
 			cancelInvite.setVisibility(Button.INVISIBLE);
 			
-			togMid.setChecked(false);
-			togMid.setChecked(true);
+			//togMid.setChecked(false);
+			//togMid.setChecked(true);
 		}
     }
     

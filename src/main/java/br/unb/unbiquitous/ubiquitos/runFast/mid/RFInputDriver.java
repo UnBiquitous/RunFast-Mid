@@ -18,6 +18,12 @@ import org.unbiquitous.uos.core.messageEngine.messages.ServiceCall;
 import org.unbiquitous.uos.core.messageEngine.messages.ServiceResponse;
 import org.unbiquitous.uos.core.network.model.NetworkDevice;
 
+/**
+ * Driver used to give device game information and notify
+ * input events. Besides provide necessary procedures to
+ * start and finish minigames.
+ *
+ */
 public class RFInputDriver implements UosEventDriver{
 
 	private static Logger logger = Logger.getLogger(RFInputDriver.class.getName());

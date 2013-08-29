@@ -15,6 +15,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+/**
+ * Activity used to show the controller and receive the player inputs.
+ *
+ */
 public class ControllerActivity extends Activity{
 
 	private static String TAG = "controller";

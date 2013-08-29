@@ -17,6 +17,11 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+/**
+ * Activity which shows the teams and character options based in
+ * the already existing players.
+ *
+ */
 public class SelectActivity extends Activity{
 
 	private static String TAG = "SelectActivity";

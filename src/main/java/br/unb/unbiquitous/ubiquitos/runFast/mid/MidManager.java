@@ -1,7 +1,5 @@
 package br.unb.unbiquitous.ubiquitos.runFast.mid;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.ListResourceBundle;
 import java.util.Map;
@@ -16,12 +14,15 @@ import org.unbiquitous.uos.core.messageEngine.dataType.UpDevice;
 import org.unbiquitous.uos.network.socket.connectionManager.EthernetTCPConnectionManager;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import br.unb.unbiquitous.ubiquitos.runFast.minigames.bonusmg.BonusActivity;
 import br.unb.unbiquitous.ubiquitos.runFast.minigames.breakmg.BreakActivity;
-import dalvik.system.DexClassLoader;
 
+/**
+ * Controls the uOS middleware and produces the layer responsible for
+ * abstracting and controlling the activities life to the main game.
+ *
+ */
 public class MidManager {
 
 	public static final String RFDEVICES_DRIVER = "br.unb.unbiquitous.ubiquitos.runFast.devicesControl.RFDevicesDriver";

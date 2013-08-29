@@ -16,6 +16,10 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+/**
+ * Activity which shows the car options to the pilot when the race is already running.
+ *
+ */
 public class SelectCarActivity extends Activity {
 
 	private static String TAG = "SelectCarActivity";

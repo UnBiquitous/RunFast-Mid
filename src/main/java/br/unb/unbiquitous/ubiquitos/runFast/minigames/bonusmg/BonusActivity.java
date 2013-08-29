@@ -6,7 +6,7 @@ import android.os.Bundle;
 
 public class BonusActivity extends Activity {
 
-	private GameSurface gameSurface = null;
+	private BonusGameSurface gameSurface = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -14,7 +14,7 @@ public class BonusActivity extends Activity {
 		
 		MidManager.setActivity(this);
 		
-		gameSurface = new GameSurface(getApplicationContext(),getResources());
+		gameSurface = new BonusGameSurface(getApplicationContext(),getResources());
 		setContentView(gameSurface);
 	}
 	
