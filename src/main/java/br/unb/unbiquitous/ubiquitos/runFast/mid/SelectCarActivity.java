@@ -9,6 +9,8 @@ import org.unbiquitous.uos.core.adaptabitilyEngine.ServiceCallException;
 import org.unbiquitous.uos.core.messageEngine.messages.ServiceResponse;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -76,17 +78,29 @@ public class SelectCarActivity extends Activity {
 	private void requestToJoinGame(int carType){
 		ServiceResponse response = null;
 		try {
-			response = gateway.callService(MidManager.getGameDevice(), "getTeamsInfos",
-					MidManager.RFDEVICES_DRIVER,null,null,null);
-			int size = Integer.decode((String)response.getResponseData("numberOfTeams"));
-			
 			Map<String, Object> map = new HashMap<String, Object>();
-			map.put("deviceName", gateway.getCurrentDevice().getName());
-			map.put("teamNumber", size);
-			map.put("character", "pilot");
 			map.put("carType", carType);
-			response = gateway.callService(MidManager.getGameDevice(), "requestPlayerJoin",
-					MidManager.RFDEVICES_DRIVER, null, null, map);
+			//Verify if the carType is available
+			if(gateway.callService(MidManager.getGameDevice(), "isCarTypeAvailable",
+					MidManager.RFDEVICES_DRIVER,null,null,map).
+					getResponseString("isCarTypeAvailable").equals("true")) {
+		
+				//Makes the entering request
+				response = gateway.callService(MidManager.getGameDevice(), "getTeamsInfos",
+						MidManager.RFDEVICES_DRIVER,null,null,null);
+				int size = Integer.decode((String)response.getResponseData("numberOfTeams"));
+			
+				map = new HashMap<String, Object>();
+				map.put("deviceName", gateway.getCurrentDevice().getName());
+				map.put("teamNumber", size);
+				map.put("character", "pilot");
+				map.put("carType", carType);
+				response = gateway.callService(MidManager.getGameDevice(), "requestPlayerJoin",
+						MidManager.RFDEVICES_DRIVER, null, null, map);
+			}else{
+				createUnvailableDialog().show();
+			}
+			
 		} catch (ServiceCallException e) {
 			e.printStackTrace();
 		}
@@ -106,6 +120,25 @@ public class SelectCarActivity extends Activity {
 		}
 	}
 	
+	private AlertDialog createUnvailableDialog(){
+		// 1. Instantiate an AlertDialog.Builder with its constructor
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		
+		// 2. Chain together various setter methods to set the dialog characteristics
+		builder.setMessage(R.string.unvailableDialog_message)
+			.setTitle(R.string.unvailableDialog_title)
+			.setPositiveButton(R.string.unvailableDialog_ok, new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int id) {
+					// User sad ok: do nothing
+				}
+			});
+				
+		// 3. Get the AlertDialog from create()
+		AlertDialog dialog = builder.create();
+		
+		return dialog;
+	}
+	
 	/**
 	 * Listener that implements OnClickListener and sends the "new team" message,
 	 * based in the chosen team.
@@ -121,7 +154,8 @@ public class SelectCarActivity extends Activity {
 				if(btsCarsOptions[i]==v){
 					if(i==9)						
 						requestToJoinGame(Math.abs(random.nextInt()%9)+1);
-					requestToJoinGame(i+1);
+					else
+						requestToJoinGame(i+1);
 				}
 			}
 		}
