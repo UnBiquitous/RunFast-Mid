@@ -20,6 +20,10 @@
     <string name="quitDialog_ok">Sim</string>
     <string name="quitDialog_cancel">Cancelar</string>
     
+    <string name="unvailableDialog_title">Carro indisponível!</string>
+    <string name="unvailableDialog_message">Este carro já foi escolhido por outro time.</string>
+    <string name="unvailableDialog_ok">OK</string>
+    
     <string name="pilot">Piloto</string>
     <string name="copilot">Copiloto</string>
     <string name="assistent">Assistente</string>
