@@ -129,10 +129,10 @@ public final class R {
     public static final class string {
         public static final int accept=0x7f050006;
         public static final int app_name=0x7f050002;
-        public static final int assistent=0x7f050012;
+        public static final int assistent=0x7f050015;
         public static final int cancel=0x7f050007;
-        public static final int copilot=0x7f050011;
-        public static final int pilot=0x7f050010;
+        public static final int copilot=0x7f050014;
+        public static final int pilot=0x7f050013;
         public static final int quitDialog_cancel=0x7f05000f;
         public static final int quitDialog_message=0x7f05000d;
         public static final int quitDialog_ok=0x7f05000e;
@@ -146,6 +146,9 @@ public final class R {
         public static final int selectcar_selectCar=0x7f05000a;
         public static final int startMiddleware=0x7f050000;
         public static final int toggleMiddleware=0x7f050001;
+        public static final int unvailableDialog_message=0x7f050011;
+        public static final int unvailableDialog_ok=0x7f050012;
+        public static final int unvailableDialog_title=0x7f050010;
     }
     public static final class style {
         public static final int Action1ButtonStyle=0x7f060005;
